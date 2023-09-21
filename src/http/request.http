@@ -1,0 +1,14 @@
+POST http://localhost:3000/create_proffy HTTP/1.1 
+Content-Type: application/json
+
+{
+	"name": "Miguel Deep",
+	"avatar": "93345675",
+	"whatsApp": "574584584459",
+	"biografia": "Sou bom em tudo que faço",
+	"subject": "Programacao",
+	"cost": "100R$",
+	"weekday": "2",
+	"time_from": "12:00",
+	"time_to": "17:00"
+}

@@ -1,0 +1,48 @@
+// This is your Prisma schema file
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Proffys {
+  id Int @id @default(autoincrement())
+
+  name      String
+  avatar    String
+  whatsApp  String
+  biografia String
+
+  classes Classes[]
+  schedule Schedule[]
+}
+
+model Classes {
+  id      Int    @id @default(autoincrement())
+  subject String
+  cost    String
+
+  proffys Proffys @relation(fields: [proffyId], references: [id])
+  proffyId Int
+}
+
+model Schedule {
+  id Int @id @default(autoincrement())
+
+  weekday String
+  time_from    String
+  time_to      String
+
+  proffys Proffys @relation(fields: [proffyId], references: [id])
+  proffyId Int
+}
+
+model Conections {
+  id        Int @id @default(autoincrement())
+  conection Int
+}
